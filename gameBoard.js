@@ -1,6 +1,6 @@
 'use strict';
-
-export const gameBoard = (className, arr) => {
+import { btnOnclick } from './morpion.js';
+export const gameBoard = (className, arr, gamer) => {
   const el = document.createElement('div');
   //   el.className('w-50');
   for (const [i, r] of arr.entries()) {
@@ -15,7 +15,11 @@ export const gameBoard = (className, arr) => {
       btn.innerHTML = cell;
 
       row.appendChild(btn);
-      btn.onclick = () => console.log(cell);
+      btn.onclick = () => {
+        // btn.className = 'btn btn-secondary disabled';
+
+        btnOnclick(btn, [i, index]);
+      };
     }
   }
 

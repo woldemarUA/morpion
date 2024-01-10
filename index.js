@@ -4,13 +4,15 @@ import { gameBoard } from './gameBoard.js';
 
 console.log('Hello');
 
+// let gamer = 0;
+
 let gameStatus = [
-  [`1`, `2`, `3`],
-  [`4`, `5`, `6`],
-  [`7`, `8`, `9`],
+  [`&nbsp `, ` `, ` `],
+  [`&nbsp `, ` `, ` `],
+  [`&nbsp `, ` `, ` `],
 ];
 
 const gameBoardEl = document.getElementById('game-board');
 gameBoardEl.appendChild(
-  gameBoard('col-3 card m-1 bg-secondary text-center text-light', gameStatus)
+  gameBoard('col-3 card m-1 bg-primary text-center ', gameStatus)
 );
