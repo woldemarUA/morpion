@@ -2,10 +2,7 @@
 let gamer = 0;
 const ticTac = ['X', 'O'];
 let gameSize = 3;
-const gameStatus = [];
-for (let i = 0; i < gameSize; i++) {
-  gameStatus.push([]);
-}
+const gameStatus = [[], [], []];
 
 export function btnOnclick(btn, arr) {
   btn.classList.toggle(btn.classList[3]);
@@ -13,24 +10,26 @@ export function btnOnclick(btn, arr) {
   btn.innerText = ticTac[gamer];
   btn.disabled = true;
   btn.onclick = false;
-
-  const res = jeuLogique(arr);
+  gameStatus[btn.id.at(-3)][btn.id.at(-1)] = ticTac[gamer];
+  // console.log(compareLine(gameStatus[btn.id.at(-3)]));
+  const res = jeuLogique(gameStatus);
   gamer = Math.abs(gamer - 1);
-  console.log(res);
+
   return res;
 }
 
-const jeuLogique = (arr) => {
-  const [row, cell] = arr;
+//  one is converting game status to the winning lines array
+// the other one is checking whether there are the lines of length === game size
+// and if they are jeu logique verify if they have the same values. if there are the empty
+// values they want be the same comapre LIne wont be true (checked)
 
-  gameStatus[row][cell] = ticTac[gamer];
+const jeuLogique = (gameStatus) => {
+  // console.log(gameStatus);
+  const allLines = column(gameStatus);
 
-  for (const [row, rowValue] of gameStatus.entries()) {
-    if (
-      rowValue.includes(ticTac[gamer]) &&
-      rowValue.length === gameStatus.length
-    )
-      return compareLine(rowValue);
+  for (const line of allLines) {
+    if (line.length === 3)
+      compareLine(line) ? console.log(`Player ${line[0]} won`) : console.log();
   }
 };
 
@@ -49,7 +48,6 @@ const testArr = [
 
 function column(arr) {
   const res = [];
-
   for (const row of arr) res.push(row);
   for (let i = 0; i < arr.length; i++) {
     const col = [];
@@ -58,22 +56,21 @@ function column(arr) {
     }
     res.push(col);
   }
-
   const diG = [];
   for (let i = 0; i < arr.length; i++) {
     diG.push(arr[i][i]);
   }
   res.push(diG);
-
   const diD = [];
-  let j = arr.length - 1;
-  for (let i = arr.length - 1; i >= 0; i--) {
-    diD.push(arr[i][j]);
-    console.log(i, j);
-    j--;
+  let i = gameSize - 1;
+  for (const el of arr) {
+    diD.push(el[i]);
+    i--;
   }
+
   res.push(diD);
-  console.log(res);
+
+  return res;
 }
 
-column(testArr);
+// console.log(column(testArr));
