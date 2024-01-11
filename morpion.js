@@ -66,7 +66,12 @@ function column(arr) {
   res.push(diG);
 
   const diD = [];
-  for (let i = arr.length - 1; i >= 0; i--) diD.push(arr[i][i]);
+  let j = arr.length - 1;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    diD.push(arr[i][j]);
+    console.log(i, j);
+    j--;
+  }
   res.push(diD);
   console.log(res);
 }
