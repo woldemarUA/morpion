@@ -2,10 +2,6 @@
 
 import { gameBoard } from './gameBoard.js';
 
-console.log('Hello');
-
-// let gamer = 0;
-
 let gameStatus = [
   [`&nbsp `, ` `, ` `],
   [`&nbsp `, ` `, ` `],
