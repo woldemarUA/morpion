@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr"> <!-- Changez "en" en "fr" pour spécifier que le contenu est en français -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de morpion</title>
-    <!-- Compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SEO Optimisation -->
+    <meta name="description"
+        content="Jouez au jeu de morpion classique gratuitement. Un jeu simple mais addictif pour vous divertir.">
+    <!-- Description courte du contenu de la page -->
+    <meta name="keywords" content="jeu de morpion, morpion gratuit, jeu simple, jeu en ligne, jeu divertissant">
+    <!-- Mots-clés pour aider les moteurs de recherche à comprendre le sujet de la page -->
+    <meta name="robots" content="index, follow">
+    <!-- Indique aux moteurs de recherche de référencer la page et de suivre les liens -->
+    <meta name="author" content="https://github.com/woldemarUA/morpion">
+    <!-- Spécifie l'auteur du contenu de la page -->
 </head>
 
-
 <body>
-
     <div class="container">
-        <h4>Hello</h4>
-        <div id='game-board' class="container">
+        <!-- Conteneur principal pour centrer le jeu sur la page -->
+        <div class="game-board">
+            <!-- Conteneur pour le message de jeu et le bouton de redémarrage -->
+            <div class="game-message cont hide" id="restart-container">
+                <!-- Conteneur pour le message de victoire et le bouton de redémarrage, initialement caché -->
+                <h3>JOUER gangne</h3>
+                <!-- Affiche le message de victoire (Note: il semble y avoir une faute de frappe dans "gangne", devrait être "gagne") -->
+                <button id='restart' type="button">Redemarrer</button>
+                <!-- Bouton pour redémarrer le jeu -->
+            </div>
+        </div>
+        <div id='game-board' class="game-board">
+            <!-- Conteneur pour le plateau de jeu -->
         </div>
     </div>
     <script type="module" src="/index.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <!-- Lie le document HTML à un fichier JavaScript externe pour la logique du jeu -->
 </body>
-
-</html>
